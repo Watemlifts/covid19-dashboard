@@ -49,7 +49,11 @@ def get_dates(df):
     return latest_date_idx, dt_cols
 
 
-def gen_data(region='Country/Region', filter_frame=lambda x: x, add_table=[], kpis_info=[]):
+def gen_data(region='Country/Region', filter_frame=lambda x: x, add_table=None, kpis_info=None):
+    if add_table is None:
+        add_table = []
+    if kpis_info is None:
+        kpis_info = []
     col_region = region
     df = get_frame('confirmed')
     dft_cases = df.pipe(filter_frame)
@@ -92,7 +96,9 @@ def gen_data(region='Country/Region', filter_frame=lambda x: x, add_table=[], kp
         'dt_last': latest_date_idx, 'dt_cols': dt_cols}
 
 
-def gen_data_us(region='Province/State', kpis_info=[]):
+def gen_data_us(region='Province/State', kpis_info=None):
+    if kpis_info is None:
+        kpis_info = []
     col_region = region
     df = pd.read_csv(
         'https://raw.githubusercontent.com/nytimes/covid-19-data'
