@@ -31,7 +31,7 @@
 # +
 #hide
 import pandas as pd
-import covid_helpers as covid_helpers
+import covid_helpers
 
 stylers = covid_helpers.PandasStyling
 
