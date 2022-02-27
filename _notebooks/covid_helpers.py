@@ -111,7 +111,6 @@ class AgeAdjustedData:
     csv_path = os.path.join(data_folder, 'world_pop_age_2020.csv')
 
     class Cols:
-        # o = original
         o4 = '0-4'
         o9 = '5-9'
         o14 = '10-14'
@@ -338,7 +337,6 @@ class CovidData:
 
     dft_cases_raw = SourceData.get_covid_dataframe('confirmed')
     dft_deaths_raw = SourceData.get_covid_dataframe('deaths')
-    # dft_recovered = SourceData.get_covid_dataframe('recovered')
     dt_cols_all = SourceData.get_dates(dft_cases_raw)
 
     cur_date = pd.to_datetime(dt_cols_all[-1]).date().isoformat()
