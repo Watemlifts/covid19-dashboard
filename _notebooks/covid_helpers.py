@@ -892,7 +892,7 @@ def altair_multiple_countries_infected(df_alt_all,
                                        title,
                                        days_back=120,
                                        marker_day=10):
-    if not len(countries):
+    if not countries:
         return
 
     alt.data_transformers.disable_max_rows()
