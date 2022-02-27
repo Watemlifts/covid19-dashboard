@@ -869,8 +869,6 @@ def altair_sir_plot(df_alt, default_country):
                              axis=alt.Axis(format='%', title='Percentage of Population')),
                      color=alt.Color('key:N',
                                      scale=alt.Scale(domain=line_cols, range=colors))))
-
-    import functools
     bands = functools.reduce(alt.Chart.__add__,
                              [base.mark_area(opacity=0.1, color=color)
                              .encode(y=f'{col}\.max:Q', y2=f'{col}\.min:Q')
