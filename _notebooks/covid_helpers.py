@@ -350,7 +350,8 @@ class CovidData:
     death_lag = 8
 
     def __init__(self, days_offset=0):
-        assert days_offset <= 0, 'day_offest can only be 0 or negative (in the past)'
+        if days_offset > 0:
+            raise AssertionError('day_offest can only be 0 or negative (in the past)')
         self.dt_cols = self.dt_cols_all[:(len(self.dt_cols_all) + days_offset)]
         self.dft_cases_backfilled = self._cases_with_backfilled_unreported_days()[self.dt_cols]
         self.dft_deaths = self.dft_deaths_raw.groupby(COL_REGION).sum()[self.dt_cols]
