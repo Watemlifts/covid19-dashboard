@@ -870,7 +870,7 @@ def altair_sir_plot(df_alt, default_country):
                                      scale=alt.Scale(domain=line_cols, range=colors))))
     bands = functools.reduce(alt.Chart.__add__,
                              [base.mark_area(opacity=0.1, color=color)
-                             .encode(y=f'{col}\.max:Q', y2=f'{col}\.min:Q')
+                             .encode(y=rf'{col}\.max:Q', y2=rf'{col}\.min:Q')
                               for col, color in zip(line_cols, colors)])
 
     today_line = (alt.Chart(pd.DataFrame({'x': [0]}))
